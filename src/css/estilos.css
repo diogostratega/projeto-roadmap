@@ -1,0 +1,170 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+
+    --cor-texto: #1f1f1f;
+    --cor-texto-claro: #ffffff;
+
+    --cor-menu: #ffffff;
+
+    --cor-destaque: #f7d038;
+    --cor-destaque-hover: #ffeb84;
+
+    --cor-header: #0d56b8;
+
+    --cor-sombra: rgba(0, 0, 0, 0.25);
+
+    --fonte-titulo: 'Press Start 2P', system-ui;
+    --fonte-texto: 'Poppins', sans-serif;
+
+    --espaco-pequeno: 8px;
+    --espaco-medio: 16px;
+    --espaco-grande: 32px;
+    --espaco-gigante: 64px;
+
+    --altura-header: 80px;
+
+    --largura-maxima: 1280px;
+
+    --transicao-padrao: 0.3s ease;
+}
+
+body {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto-claro);
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background-color: var(--cor-header);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+}
+
+.cabecalho .logo {
+    width: 60px;
+}
+
+.cabecalho .items {
+    display: flex;
+    gap: 30px;
+}
+
+.cabecalho .item a {
+    text-decoration: none;
+    color: var(--cor-menu);
+    font-weight: bold;
+}
+
+.cabecalho .botao {
+    width: 60px;
+    background-color: transparent;
+}
+
+.hero {
+    height: calc(100vh + 80px);
+
+    background-image: url(../img/warpzone.webp);
+    background-size: cover;
+    background-position: center;
+
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+
+    justify-items: center;
+
+    padding: 50px 20px;
+}
+
+.hero .titulo {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.hero .conteudo {
+    max-width: 800px;
+    text-align: center;
+}
+
+.world-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 20px;
+
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+}
+
+.world-map .cano {
+    transition: var(--transicao-padrao);
+    position: absolute;
+}
+
+.world-map .cano:hover {
+    transform: translateY(+10px);
+}
+
+.world-map .cano .imagem-cano {
+    width: 90px;
+}
+
+.world-map .junho {
+    top: 40px;
+    left: 380px;
+}
+
+.world-map .julho {
+    top: 40px;
+    left: 560px;
+}
+
+.world-map .agosto {
+    top: 40px;
+    left: 740px;
+}
+
+.world-map .setembro {
+    top: 225px;
+    left: 380px;
+}
+
+.world-map .outubro {
+    top: 225px;
+    left: 560px;
+}
+
+.world-map .novembro {
+    top: 225px;
+    left: 740px;
+}
+
+.world-map .dezembro {
+    top: 380px;
+    left: 860px;
+}
+
+.mes {
+    min-height: 100vh;
+
+    padding: 100px 50px;
+}
