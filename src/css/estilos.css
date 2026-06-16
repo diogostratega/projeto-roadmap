@@ -1,7 +1,3 @@
-html {
-    scroll-behavior: smooth;
-}
-
 :root {
 
     --cor-texto: #1f1f1f;
@@ -12,28 +8,28 @@ html {
     --cor-destaque: #f7d038;
     --cor-destaque-hover: #ffeb84;
 
-    --cor-header: #0d56b8;
+    --cor-background: #1f6ed4;
 
     --cor-sombra: rgba(0, 0, 0, 0.25);
 
     --fonte-titulo: 'Press Start 2P', system-ui;
     --fonte-texto: 'Poppins', sans-serif;
 
-    --espaco-pequeno: 8px;
-    --espaco-medio: 16px;
-    --espaco-grande: 32px;
-    --espaco-gigante: 64px;
+}
 
-    --altura-header: 80px;
-
-    --largura-maxima: 1280px;
-
-    --transicao-padrao: 0.3s ease;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: var(--fonte-titulo);
     color: var(--cor-texto-claro);
+    text-shadow:
+        -2px 0 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        0 2px 0 #000;
+    text-transform: uppercase;
 }
 
 .cabecalho {
@@ -43,7 +39,7 @@ body {
 
     padding: 20px 40px;
 
-    background-color: var(--cor-header);
+    background-color: var(--cor-background);
 
     position: fixed;
     top: 0;
@@ -74,93 +70,167 @@ body {
     background-color: transparent;
 }
 
-.hero {
-    height: calc(100vh + 80px);
+.hero .caixa-titulo {
+    position: relative;
+    background-color: var(--cor-background);
+    border: 4px solid white;
+    padding: 12px 48px 24px 48px;
+}
 
-    background-image: url(../img/warpzone.webp);
-    background-size: cover;
-    background-position: center;
+.caixa-titulo::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
 
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    border: 4px solid black;
+    pointer-events: none;
 
-    justify-items: center;
+}
 
-    padding: 50px 20px;
+.hero .titulo,
+.hero .conteudo,
+.hero .rotape {
+    text-align: center;
 }
 
 .hero .titulo {
     font-size: 2rem;
-    margin-top: 20px;
 }
 
 .hero .conteudo {
-    max-width: 800px;
     text-align: center;
 }
 
-.world-map {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 20px;
-
+.hero {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
-    height: 600px;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../img/oceano.png");
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+
+    padding: 48px 20px 20px 20px;
+}
+
+.caixa-titulo::before {
+    content: "";
+
+    position: absolute;
+    inset: -8px;
+
+    border: 4px solid black;
+
+    pointer-events: none;
+}
+
+.titulo,
+.conteudo,
+.rotape {
+    text-align: center;
+}
+
+.titulo {
+    font-size: 2rem;
+}
+
+.world-map {
+    position: relative;
+
+    width: min(90vw, 1200px);
+
+    aspect-ratio: 1200 / 700;
+
+    margin-top: -230px;
+}
+
+.world-map .ilha {
+    position: absolute;
+
+    inset: 0;
+
+    width: 130%;
+    height: 130%;
+
+    object-fit: contain;
+
+    z-index: 1;
 }
 
 .world-map .cano {
-    transition: var(--transicao-padrao);
     position: absolute;
-}
 
-.world-map .cano:hover {
-    transform: translateY(+10px);
+    z-index: 2;
+
+    transition: 0.3s ease;
 }
 
 .world-map .cano .imagem-cano {
-    width: 90px;
+    width: clamp(45px, 5vw, 70px);
+    height: auto;
 }
 
-.world-map .junho {
-    top: 40px;
-    left: 380px;
+.world-map .cano .mes-label {
+    display: block;
+
+    text-align: center;
+
+    margin-bottom: -5px;
 }
 
-.world-map .julho {
-    top: 40px;
-    left: 560px;
+/* POSIÇÕES DOS CANOS */
+
+/* Linha 1 */
+.junho {
+    top: 40%;
+    left: 30%;
 }
 
-.world-map .agosto {
-    top: 40px;
-    left: 740px;
+.julho {
+    top: 40%;
+    left: 45%;
 }
 
-.world-map .setembro {
-    top: 225px;
-    left: 380px;
+.agosto {
+    top: 40%;
+    left: 60%;
 }
 
-.world-map .outubro {
-    top: 225px;
-    left: 560px;
+/* Linha 2 */
+.setembro {
+    top: 60%;
+    left: 30%;
 }
 
-.world-map .novembro {
-    top: 225px;
-    left: 740px;
+.outubro {
+    top: 60%;
+    left: 45%;
 }
 
-.world-map .dezembro {
-    top: 380px;
-    left: 860px;
+.novembro {
+    top: 60%;
+    left: 60%;
+}
+
+/* Linha 3 */
+.dezembro {
+    top: 71%;
+    left: 72%;
+}
+
+.rotape {
+    max-width: 1200px;
+}
+
+.world-map .cano .mes-label {
+    position: relative;
+    padding: 0 0 12px 0;
 }
 
 .mes {
